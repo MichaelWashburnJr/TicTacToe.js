@@ -143,13 +143,13 @@ var buttonClicked = function(id){
   } else {
     setCell(coord.x, coord.y, "O");
   }
-  /* process AI move */
+  /* check for winner before AI move  */
   var winner = getWinner();
-  console.log(winner);
   if(winner == "" && openCells.length > 0){
     AIMove();
     winner = getWinner();
-  } else{
+  }
+  if(winner != "" || openCells.length == 0){
     onWin(winner);
   }
 
